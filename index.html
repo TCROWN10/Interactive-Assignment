@@ -13,6 +13,8 @@
     <title>Week 9 assignment</title>
 </head>
 <body>
+    <!-- I create two container for the home page and the result page -->
+    <!-- Note ma , my containers are carrying to style attributes . The id's is actaully for my Js styling ma while the class is for my css styling  -->
     <div id="container" class="General-container">
         <div class="star-container">
             <img src="icon-star.svg" alt="">
@@ -22,6 +24,8 @@
             <p>Please let us know how we did with your support request. All feedback is appreciated 
                 to help us improve our offering!</p>
         </div>
+        <!-- I had to use button for my Radio numbers , seems it looks more easier o style . A good result was what i was looking for ! -->
+        <!-- Note ma , my containers are carrying to style attributes . The id's is actaully for my Js styling ma while the class is for my css styling  -->
         <div class="button-container">
             <button id="button1" class="btn1">1</button>
             <button id="button2" class="btn2">2</button>
@@ -29,12 +33,16 @@
             <button id="button4" class="btn4">4</button>
             <button id="button5" class="btn5">5</button>
         </div>
+        <!-- This is the only tag that has one style attributes .  -->
         <button id="submit-btn">SUBMIT</button>
     </div>
+    <!-- This is the second container that contains the result we are going to get after submitting the numbers  -->
+    <!-- Note ma , my containers are carrying to style attributes . The id's is actaully for my Js styling ma while the class is for my css styling  -->
     <div id="second" class="second-general-container">
         <div class="phone-image">
         <img src="illustration-thank-you.svg" alt="">
     </div>
+    <!-- So to my result, I want it to changes number to give me my preferred selected number .. that was why i gave my 1 a span and give it a style attribute. my 5 remains constant  -->
     <div class="selected">
         <h4>You selected <span id="score">1</span> out of 5</h4>
     </div>
@@ -45,25 +53,27 @@
     </div>
     </div>
     <script>
+        // My second container comes first because i want my display to replace the home page as soon i submit my preferred selected number. That is why my style is having display instead of having a visibility of hidden
         const secondContainer = document.getElementById("second")
         // secondContainer.style.visibility = 'hidden';
         secondContainer.style.display = 'none';
         let isBtnClicked = undefined;
+        // For my buttons And For my submit button. 
     const buttons = document.querySelectorAll('button');
     buttons.forEach(button => {
     button.addEventListener('click', () => {
-
     if (button.id !== 'submit-btn') {
     console.log(`Button clicked: ${button.textContent}`);
         isBtnClicked = button.textContent;
     }else{
         if (isBtnClicked === undefined) {
-            alert("Please enter your number");
+            alert("Select number first");
+            // Now my First container has a display of none too 
         }else{
             const generalContainer = document.getElementById("container");
             // generalContainer.style.visibility = 'hidden';
             generalContainer.style.display = 'none';
-            // For the last container , to make it 
+            // For the last container , to make it responsive by replacing it after submitting my selected number
             const scoreContainer = document.getElementById('score')
             scoreContainer.innerText = isBtnClicked
             secondContainer.style.display = 'block';
